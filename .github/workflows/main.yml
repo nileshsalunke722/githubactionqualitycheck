@@ -14,7 +14,12 @@ jobs:
             - name: installing dependancies
               run: pip install -r requirements.txt
             - name: run test cases
-              run: pytest --cov=calc --cov-report=term 
+              run: pytest --cov=calc --cov-report=html --cov-fail-under=80
+            - name: download code coverage
+              uses: actions/upload-artifact@v4
+              with:
+                name: code-coverage-html-doc
+                path: codec/ 
     deploy-code:
         runs-on: ubuntu-latest
         needs: test-job
