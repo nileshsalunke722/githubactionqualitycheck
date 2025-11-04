@@ -1,5 +1,4 @@
 import pytest
-
 from calc import add, sub, div, mul
 
 def test_add():
